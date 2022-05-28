@@ -12,6 +12,19 @@ int main()
     {
         cout << word << " ";
     }
-    cout << endl;
+    cout << endl; // first option using cout'
+    printf("Second option using printf\n");
+    printf("%s\n", msg[0].c_str()); // second option using printf
+
+    char messageToPrint[] = "Supercalifragilisticexpialidocious";
+
+    printf("%s\n", messageToPrint);
+
+    printf(messageToPrint);
+    printf("\n");
+
+
+
+
 }
 
