@@ -1,17 +1,13 @@
-/*
-  a function that simply sum all the elements in an array
-*/
+#include <iostream>
+using namespace std;
 
-int arrayIntegers[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-int sumArray(int array[]) {
-  int sum  = 0;
-  int size = sizeof(array);
-  for (int i = 0; i < size; i++) {
-    sum += array[i];
-  }
-  return sum;
+int main (){
+   int arr[] = { 2, 5, 7, 8, 2, 6, 9 };
+   int n = 7;
+   int sum = 0;
+   for(int i = 0; i<n ; i++){
+      sum+=arr[i];
+   }
+   cout << "The array sum is " << sum << endl;
+   return 0;
 }
-
-cout << sumArray(arrayIntegers);
-
