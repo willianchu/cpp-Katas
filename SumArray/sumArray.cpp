@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numeric>
 using namespace std;
 
 int main (){
@@ -11,6 +12,13 @@ int main (){
    for(int i = 0; i< size ; i++){
       sum+=arr[i];
    }
-   cout << "The array sum is " << sum << endl;
+   cout << "The array sum with loop is " << sum << endl;
+
+    sum = 0;
+    sum = accumulate(arr, arr+len, sum);
+
+   cout << "The array sum with accumulate is " << sum << endl;
+
+
    return 0;
 }
