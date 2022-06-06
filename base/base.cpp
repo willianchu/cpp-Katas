@@ -3,11 +3,11 @@ using namespace std;
 
 int main()
 {
-  cout << "Circle\n";
-  cout << "Area!" << endl;
+  cout << "Please enter a radius: ";
+  float radius = 2.0;
+  cin >> radius;
 
   float PI = 3.14159;
-  float radius = 2.0;
   float area = PI * radius * radius;
   cout << "Area of circle with radius " << radius << " is " << area << endl;
 
