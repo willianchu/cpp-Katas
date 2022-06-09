@@ -42,3 +42,20 @@ int main() {
 //     ss >> ch;           //??
 // }
 // return result;
+
+
+// vector<int> parseInts(string str)
+// {
+//     vector<int> vec;    // Declares a vector to store the ints
+//     stringstream ss(str);   // Declares a stringstream object to deal with the modification of the string
+//     char ch;
+//     int temp;
+
+//     while(ss)   // While the stringstream object does not hit a null byte
+//     {
+//         ss>>temp>>ch;   // Extract the comma seperated ints with the extraction >> operator
+//         vec.push_back(temp);   // Push the int onto the vector
+//     }
+
+//     return vec; // Return the vector of ints
+// }
