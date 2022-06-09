@@ -7,23 +7,10 @@ using namespace std;
 
 
 int main() {
-    string s;
+    /* sum 3 numbers */
+    /* constraints 1 < a , b , c < 1000 */
     int a, b, c;
-    printf("Enter 3 numbers: ");
-    while(true){
     scanf("%d %d %d", &a, &b, &c);
-    if ( 1 < a,b,c < 1000) {
-        if (a + b > c && a + c > b && b + c > a) {
-            printf("%d\n", a + b + c);
-            break;
-        } else {
-            printf("try again\n");
-            continue;
-        }
-    }
-    }
-
-    }
-
+    printf("%d", a + b + c);
     return 0;
 }

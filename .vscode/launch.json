@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "c:/Users/willi/Projects/cpp/SumArray",
-      "program": "c:/Users/willi/Projects/cpp/SumArray",
+      "cwd": "c:/Users/willi/Projects/cpp/basicDataTypes",
+      "program": "c:/Users/willi/Projects/cpp/basicDataTypes",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
