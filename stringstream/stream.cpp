@@ -59,3 +59,11 @@ int main() {
 
 //     return vec; // Return the vector of ints
 // }
+
+
+// third better
+// stringstream ss(str);
+// vector<int> v;
+// for(int i=0; ss>>i; ss.ignore())
+//     v.push_back(i)
+// return v
