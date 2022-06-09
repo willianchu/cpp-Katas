@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <string>
 using namespace std;
 
 class Student {
@@ -13,10 +14,10 @@ class Student {
     int get_age() {
         return age;
     }
-    void set_standart (int a){
+    void set_standard (int a){
         standart = a;
     }
-    int get_standart() {
+    int get_standard() {
         return standart;
     }
     void set_first_name (string a){
@@ -26,10 +27,13 @@ class Student {
         return first_name;
     }
     void set_last_name (string a){
-        first_name = a;
+        last_name = a;
     }
     string get_last_name() {
-        return first_name;
+        return last_name;
+    }
+    string to_string() {
+        return std::to_string(age)+","+first_name+","+last_name+","+std::to_string(standart);
     }
 };
 
