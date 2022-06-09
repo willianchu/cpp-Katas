@@ -53,7 +53,7 @@ int main() {
 
 //     while(ss)   // While the stringstream object does not hit a null byte
 //     {
-//         ss>>temp>>ch;   // Extract the comma seperated ints with the extraction >> operator
+//         ss>>temp>>ch;   // Extract the comma separated ints with the extraction >> operator
 //         vec.push_back(temp);   // Push the int onto the vector
 //     }
 
@@ -67,3 +67,24 @@ int main() {
 // for(int i=0; ss>>i; ss.ignore())
 //     v.push_back(i)
 // return v
+
+
+// this
+// int main() {
+//     string str;
+//     cin >> str;
+//     vector<int> integers = parseInts(str);
+//     for(int i = 0; i < integers.size(); i++) {
+//         cout << integers[i] << "\n";
+//     }
+
+//     return 0;
+// }
+
+// could be write like this
+// int main()
+// {
+//     string str;  cin >> str;
+//     for (const int& i : parseInts(str)) cout << i << endl;
+//     return 0;
+// }
