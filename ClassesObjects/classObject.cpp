@@ -10,8 +10,10 @@ class Student{
     private:
     int scores[5];
     public:
-    void input(int x1, int x2, int x3, int x4, int x5){
-        scores = [x1, x2, x3,x4, x5];
+    void input(){
+        for (int i = 0; i < 5; i++){
+            cin >> scores[i];
+        }
     }
     int calculateTotalScore() {
         int total = 0;
