@@ -2,6 +2,10 @@
 
 using namespace std;
 
+#include<bits/stdc++.h>
+
+using namespace std;
+
 class Box { //Implement the class Box
 
 private:
@@ -37,11 +41,12 @@ public:
     long long CalculateVolume(){
         return (long long)l * b * h;
     }
-};
+
 
 //Overload operator < as specified
 //bool operator<(Box& b)
-    bool operator<(Box& A, Box& B){
+    bool operator<(Box& B){
+        Box A;
         if( A.CalculateVolume() < B.CalculateVolume()) {
             return true;
         } else {
@@ -51,9 +56,33 @@ public:
 
 //Overload operator << as specified
 //ostream& operator<<(ostream& out, Box& B)
-    void operator<<(ostream& COUT, Box& B){
-        COUT<<B.getLength()<<" "<<B.getBreadth()<<" "<<B.getHeight();
+};
+    ostream& operator<<(ostream& OUT, Box& B){
+        return OUT<<B.getLength()<<" "<<B.getBreadth()<<" "<<B.getHeight();
     };
+    //Implement the class Box
+//l,b,h are integers representing the dimensions of the box
+
+// The class should have the following functions :
+
+// Constructors:
+// Box();
+// Box(int,int,int);
+// Box(Box);
+
+
+// int getLength(); // Return box's length
+// int getBreadth (); // Return box's breadth
+// int getHeight ();  //Return box's height
+// long long CalculateVolume(); // Return the volume of the box
+
+//Overload operator < as specified
+//bool operator<(Box& b)
+
+//Overload operator << as specified
+//ostream& operator<<(ostream& out, Box& B)
+
+
 void check2()
 {
 	int n;
