@@ -41,25 +41,38 @@ public:
     long long CalculateVolume(){
         return (long long)l * b * h;
     }
+        friend bool operator < (Box& b1, Box& b2)
+        {
+            if((b1.l < b2.l) || (b1.l == b2.l && b1.b < b2.b) ||
+               (b1.l == b2.l && b1.b == b2.b && b1.h <b2.h))
+                return(true);
+            else
+                return(false);
+        }
 
+        friend ostream& operator << (ostream& s,Box& b1)
+        {
+            s << b1.l << " " << b1.b << " " << b1.h;
+            return s;
+        }
 
 //Overload operator < as specified
 //bool operator<(Box& b)
-    bool operator<(Box& B){
-        Box A;
-        if( A.CalculateVolume() < B.CalculateVolume()) {
-            return true;
-        } else {
-            return false;
-        }
-    };
+    // bool operator<(Box& B){
+    //     Box A;
+    //     if( A.CalculateVolume() < B.CalculateVolume()) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // };
 
 //Overload operator << as specified
 //ostream& operator<<(ostream& out, Box& B)
-};
-    ostream& operator<<(ostream& OUT, Box& B){
-        return OUT<<B.getLength()<<" "<<B.getBreadth()<<" "<<B.getHeight();
-    };
+// };
+//     ostream& operator<<(ostream& OUT, Box& B){
+//         return OUT<<B.getLength()<<" "<<B.getBreadth()<<" "<<B.getHeight();
+//     };
     //Implement the class Box
 //l,b,h are integers representing the dimensions of the box
 
