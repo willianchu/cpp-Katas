@@ -55,7 +55,7 @@ public:
             s << b1.l << " " << b1.b << " " << b1.h;
             return s;
         }
-
+};
 //Overload operator < as specified
 //bool operator<(Box& b)
     // bool operator<(Box& B){
