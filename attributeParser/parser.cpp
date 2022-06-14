@@ -4,15 +4,13 @@
 #include <iostream>
 #include <algorithm>
 #include <map>
-#include <string>
 using namespace std;
 
 string retrievePath(vector<string> stack) {
   string path = "";
-  int size = stack.size();
-  for(int i = 0; i < size; i++) {
+  for(int i = 0; i < stack.size(); i++) {
     path += stack[i];
-    if(i != size - 1) {
+    if(i != stack.size() - 1) {
       path += ".";
     }
   }
@@ -30,10 +28,6 @@ int main() {
       int operation = 1; // tag 1 name / 2 attribute / 3 value
       for(int j = 1; j < entireLine.length(); j++){
         char c = entireLine[j];
-        if(c == '\\'){
-          stack.pop_back();
-          break;
-        }
         switch(operation){
           case 1:
             if(c ==' '){
@@ -57,15 +51,13 @@ int main() {
             if((c == ' ' && value == "") || (c == '"')) break; // ignore space and "
             if(c == ' ' || c == '>'){
               operation = 2;
-              path = retrievePath(stack)+attribute;
-              Tree[path] = value;
-              attribute = "";
+              path = retrievePath(stack);
+            } else {
+              value += c;
+            }
+
         }
       }
-    }
-        // print the dictionary
-    for(auto it = Tree.begin(); it != Tree.end(); it++){
-      cout << it->first << " " << it->second << endl;
     }
     return 0;
 }
