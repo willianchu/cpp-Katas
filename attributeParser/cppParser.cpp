@@ -7,42 +7,91 @@
 #include <string>
 using namespace std;
 
-string* splitInArray(string str, char delimiter) {
-  string* array = new string[str.length()];
-  int i = 0;
-  int j = 0;
-  while(i < str.length()) {
-    if(str[i] == delimiter) {
-      array[j] = str.substr(0, i);
-      str = str.substr(i+1);
-      j++;
-    }
-    i++;
-  }
-  return array;
-}
-
-
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
-  string entireLine; getline(cin, entireLine);
-  entireLine = entireLine.substr(1, entireLine.length()-2);
-  string* lineArray = splitInArray(entireLine, ' ');
-  // iterate through lineArray looking for '='
-  int i = 0;
-  while(i < lineArray[0].length()) {
-    if(lineArray[0][i] == '=') {
-      string attribute = lineArray[0].substr(0, i);
-      string value = lineArray[0].substr(i+1);
-      cout << attribute << " " << value << endl;
-      break;
+  int N, Q; cin >> N >> Q;
+  vector<string> stack;
+  string tag, element,value;
+  map<string, string> tree;
+  for(int i = 0; i < N + 1; i++) {
+    string entireLine; getline(cin, entireLine);
+    int numOfCharacters = entireLine.length();
+    int getElement = 0;
+    for (int j = 0; j < numOfCharacters; j++) {
+      switch(getElement){
+        case 0:
+          if(entireLine[j] == ' ') {
+            continue;
+          }
+          if(entireLine[j] == '<') {
+            getElement = 1;
+            tag = "";
+          }
+          break;
+        case 1:
+          if(entireLine[j] == '\\') {
+            stack.pop_back();
+            j = numOfCharacters;
+            continue;
+          }
+          if(entireLine[j] == ' ' && tag == "") {
+            continue;
+          } else if(entireLine[j] == ' ') {
+            getElement = 2;
+            stack.push_back(tag);
+            tag = "";
+            element = "";
+            continue;
+          } else {
+            tag += entireLine[j];
+          }
+          break;
+        case 2:
+          if(entireLine[j] == ' ') {
+            continue;
+          } else if (entireLine[j] == '=') {
+            getElement = 3;
+            value = "";
+            continue;
+          } else {
+            element += entireLine[j];
+          }
+          break;
+        case 3:
+          if((entireLine[j] == ' ' && value == "") || entireLine[j] == '"') {
+            continue;
+          } else if (entireLine[j] == '>' || entireLine[j] == ' ') {
+            string key = "";
+            for(int k = 0; k < stack.size(); k++) {
+              key += key == "" ? stack[k] : "." + stack[k];
+            }
+            key += '~' + element;
+
+            tree[key] = value;
+            getElement = 2;
+            element = "";
+          } else {
+            value += entireLine[j];
+          }
+          break;
+
+      }
     }
-    i++;
+
   }
-  // print lineArray
-  int size = sizeof(lineArray) / sizeof(lineArray[0]);
-  for(int i = 0; i < size; i++) {
-    cout << lineArray[i] << endl;
+//   cout << "tree: " << endl;
+  // print the tree
+  // for( map<string,string>::iterator i=tree.begin(); i!=tree.end(); ++i)
+  //   {
+  //   cout << (*i).first <<  " = " << (*i).second << endl;
+  //   }
+  for(int i = 0; i < Q; i++) {
+    string query; getline(cin, query);
+    if(tree[query] == "") {
+      cout << "Not Found!" << endl;
+    } else {
+      cout << tree[query] << endl;
+    }
   }
     return 0;
 }
