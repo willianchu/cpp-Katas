@@ -60,6 +60,9 @@ int main() {
               path = retrievePath(stack)+attribute;
               Tree[path] = value;
               attribute = "";
+            } else {
+              value += c;
+            }
         }
       }
     }
