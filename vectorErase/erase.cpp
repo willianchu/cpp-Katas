@@ -4,6 +4,7 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
+
 void vectorErase(vector<int>&, int = 0, int = 0);
 void vectorErase(vector<int>& arr, int k, int m) {
     if (m == 0 && k > 0){
@@ -21,7 +22,9 @@ int main() {
   vectorErase(arr, k);
   int m; cin >> k >> m;
   vectorErase(arr, k, m);
-  for (int i = 0; i < arr.size(); i++) cout << arr[i] << " ";
+  int size = arr.size();
+  cout << size << endl;
+  for (int i = 0; i < size; i++) cout << arr[i] << " ";
 
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
     return 0;
