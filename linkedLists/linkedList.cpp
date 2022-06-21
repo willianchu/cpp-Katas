@@ -8,11 +8,21 @@ public:
 
 };
 
-void printList(Node*n) {
+void printList(Node*n) { // receives the value address
   while(n!=NULL) {
     cout << n->Value << endl;
     n=n->Next;
   }
+}
+
+void insertFirst(Node**head, int Value) { // receives the pointer to the pointer
+  // I.create new node
+  Node* newNode = new Node();
+  newNode->Value = Value;
+  // II.put in front
+  newNode->Next = *head;
+  // III.move the head to the first
+  *head = newNode;
 }
 
 int main()
@@ -28,8 +38,8 @@ int main()
   third->Value = 3;
   third->Next = NULL;
 
+  insertFirst(&head, -1);
   printList(head);
-
 
 
   system("pause>0");
