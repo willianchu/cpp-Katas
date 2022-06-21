@@ -15,7 +15,7 @@ void printList(Node*n) { // receives the value address
   }
 }
 
-void insertFirst(Node**head, int Value) { // receives the pointer to the pointer
+void insertFirst(Node**head, int Value) { // receives the pointer to the pointer brings *head to the function
   // I.create new node
   Node* newNode = new Node();
   newNode->Value = Value;
@@ -23,6 +23,25 @@ void insertFirst(Node**head, int Value) { // receives the pointer to the pointer
   newNode->Next = *head;
   // III.move the head to the first
   *head = newNode;
+}
+
+void insertLast(Node**head, int Value) { // receives the pointer to the pointer brings *head to the function
+  // I.create new node
+  Node* newNode = new Node();
+  newNode->Value = Value;
+  newNode->Next = NULL;
+  // list is empty?
+  if (*head==NULL){
+    *head = newNode;
+    return;
+  }
+  // II.find last
+  Node* last = *head;
+  while(last->Next!=NULL){
+    last = last->Next;
+  }
+  // III.insert last
+  last->Next = newNode;
 }
 
 int main()
@@ -40,6 +59,8 @@ int main()
 
   insertFirst(&head, -1);
   insertFirst(&head, -2);
+  insertLast(&head, 4);
+  insertLast(&head, 5);
   printList(head);
 
 
