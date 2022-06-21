@@ -5,7 +5,7 @@ using namespace std;
 
 class Student {
     private:
-    int age, standart;
+    int age, standard;
     string first_name, last_name;
     public:
     void set_age (int a){
@@ -15,10 +15,10 @@ class Student {
         return age;
     }
     void set_standard (int a){
-        standart = a;
+        standard = a;
     }
     int get_standard() {
-        return standart;
+        return standard;
     }
     void set_first_name (string a){
         first_name = a;
@@ -33,7 +33,7 @@ class Student {
         return last_name;
     }
     string to_string() {
-        return std::to_string(age)+","+first_name+","+last_name+","+std::to_string(standart);
+        return std::to_string(age)+","+first_name+","+last_name+","+std::to_string(standard);
     }
 };
 
