@@ -39,6 +39,7 @@ int main()
   third->Next = NULL;
 
   insertFirst(&head, -1);
+  insertFirst(&head, -2);
   printList(head);
 
 
