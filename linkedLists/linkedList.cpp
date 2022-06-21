@@ -44,24 +44,17 @@ void insertLast(Node**head, int Value) { // receives the pointer to the pointer 
   last->Next = newNode;
 }
 
-void insertAfter(Node**head, int Before, int Value) { // receives the pointer to the pointer brings *head to the function
+void insertAfter(Node*previous, int Value) {
+  // previous is NULL?
+  if (previous==NULL){
+    cout << "previous cannot be NULL"<<endl;
+    return;
+  }
   // I.create new node
   Node* newNode = new Node();
   newNode->Value = Value;
-  // newNode->Next = NULL;
 
-  // list is empty?
-  if (*head==NULL){
-    *head = newNode;
-    newNode->Next = NULL;
-    return;
-  }
-  // II.find previous
-  Node* previous = *head;
-  while(previous->Value!=Before){
-    previous = previous->Next;
-  }
-  // III.insert previous
+  // II.insert previous
   newNode->Next = previous->Next;
   previous->Next = newNode;
 }
@@ -83,7 +76,8 @@ int main()
   insertFirst(&head, -2);
   insertLast(&head, 4);
   insertLast(&head, 5);
-  insertAfter(&head, 3, 10);
+  insertAfter(head, 10);
+  insertAfter(second, 20);
   printList(head);
 
 
