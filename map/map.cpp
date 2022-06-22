@@ -14,7 +14,7 @@ int main()
   cDictionary.insert(pair<string, string>("matrix", "Keanu Reeves"));
 
   cDictionary["maverick"] = "Jennifer Gardener";
-  cDictionary.clear();
+  // cDictionary.clear(); cDictionary.erase("maverick");
   cout << cDictionary.size()<<endl;
   for(auto pair : cDictionary) {
     cout << pair.first << " - " << pair.second << endl;
