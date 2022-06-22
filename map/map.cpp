@@ -13,6 +13,8 @@ int main()
   cDictionary.insert(pair<string, string>("back to the future", "Michael J. Fox"));
   cDictionary.insert(pair<string, string>("matrix", "Keanu Reeves"));
 
+  cDictionary["maverick"] = "Jennifer Gardener";
+  cout << cDictionary.size()<<endl;
   for(auto pair : cDictionary) {
     cout << pair.first << " - " << pair.second << endl;
   }
