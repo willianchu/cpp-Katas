@@ -1,34 +1,56 @@
-#define INF (unsigned)!((int)0)
-#define FUNCTION(name,operator) inline void name(int &current, int candidate) {!(current operator candidate) ? current = candidate : false;}
-#define io(v) cin>>v
-#define toStr(str) #str
-#define foreach(v, i) for (int i = 0; i < v.size(); ++i)
+//Operator Overloading
 
-#include <iostream>
-#include <vector>
+#include<iostream>
+
 using namespace std;
 
-#if !defined toStr || !defined io || !defined FUNCTION || !defined INF
-#error Missing preprocessor definitions
-#endif
+class Complex
+{
+public:
+    int a,b;
+    void input(string s)
+    {
+        int v1=0;
+        int i=0;
+        while(s[i]!='+')
+        {
+            v1=v1*10+s[i]-'0';
+            i++;
+        }
+        while(s[i]==' ' || s[i]=='+'||s[i]=='i')
+        {
+            i++;
+        }
+        int v2=0;
+        while(i<s.length())
+        {
+            v2=v2*10+s[i]-'0';
+            i++;
+        }
+        a=v1;
+        b=v2;
+    }
+};
+Complex operator +(const Complex& a,const Complex& b){
 
-FUNCTION(minimum, <)
-FUNCTION(maximum, >)
+    return{a.a + b.a, a.b + b.b };
+}
+ ostream& operator<<(ostream& dout,const Complex &c){
+  return(dout<<c.a<<"+"<<"i"<<c.b);
 
-int main(){
-	int n; cin >> n;
-	vector<int> v(n);
-	foreach(v, i) {
-		io(v)[i];
-	}
-	int mn = INF;
-	int mx = -INF;
-	foreach(v, i) {
-		minimum(mn, v[i]);
-		maximum(mx, v[i]);
-	}
-	int ans = mx - mn;
-	cout << toStr(Result =) <<' '<< ans;
-	return 0;
+}
+//Overload operators + and << for the class complex
+//+ should add two complex numbers as (a+ib) + (c+id) = (a+c) + i(b+d)
+//<< should print a complex number in the format "a+ib"
 
+int main()
+{
+    Complex x,y;
+    string s1,s2;
+    cin>>s1;
+    cin>>s2;
+    x.input(s1);
+    y.input(s2);
+    Complex z=x+y;
+    cout<<z<<endl;
 }
