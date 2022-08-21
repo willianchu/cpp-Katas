@@ -12,7 +12,7 @@ int main() {
   int N, Q;
   N = 12;
   Q = 8;
-  vector<int> num {1, 2, 3, 4, 5};
+  vector<int> num = {1, 2, 3, 4, 5};
   vector<string> A {
   '    <tag1 value = "HelloWorld">',
   '	<tag2 name = "Name1">',
